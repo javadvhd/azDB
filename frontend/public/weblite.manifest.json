@@ -1,0 +1,16 @@
+{
+  "name": "جزوه اینلاین",
+  "id": "5e1abc1c5327480bfbe7f701",
+  "instantiable": true,
+  "shareDB": true,
+  "fullscreen": false,
+  "inline": true,
+  "searchable": false,
+  "width": 240,
+  "height": 276,
+  "servIndexes": {
+    "inline": "index",
+    "main": "index"
+  },
+  "version": "0.1.7"
+}

@@ -1,0 +1,42 @@
+@import url(https://www.weblite.me:3000/static/assets/fonts/iranyekan/3.0/iranyekan.min.css);
+
+html {
+  height: 100vh;
+  width: 100vw;
+}
+
+body {
+  margin: 0;
+  font-family: iranyekan, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #818181;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(46, 44, 44, 0.774);
+}
+
+body {
+  /*background-color: #000;*/
+  overflow-x: hidden;
+}
+
+body,
+#root {
+  height: 100%
+}
+
+/* #root {max-width: 240px;
+margin-left: auto;
+} */
