@@ -2,12 +2,12 @@ const { getPatientlist } = require('../db/db.handler')
 
 module.exports = ({ router }) => {
   router.get('/patientList', ctx => {
-    // getPatientlist()
-    //   .then(data => {
-    //     console.log('data ', data)
-    //     ctx.body = 'success!'
-    //   })
-    //   .catch(console.log)
+    getPatientlist()
+      .then(data => {
+        console.log('data ', data)
+        ctx.body = 'success!'
+      })
+      .catch(console.log)
   })
 
   router.post('/updateNote', ctx => {

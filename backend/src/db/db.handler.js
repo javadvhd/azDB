@@ -1,4 +1,4 @@
-const { db } = require('./db')
+const sql = require('mssql')
 
 const saveNote = async ({ wisId, userId }) =>
   await db.run(
@@ -35,12 +35,19 @@ const updateNote = async ({ wisId, title, content }) => {
 }
 
 const getPatientlist = async ({}) => {
-  ;['1', '11']
+  let sqlRequest = new sql.Request()
+  let sqlQuery = 'Select * From Pationt p'
+  console.log('sqlQuery ', sqlQuery)
+  return sqlRequest.query(sqlQuery, (err, data) => {
+    if (err) {
+      console.log('error', err)
+      return console.error(err.message)
+    }
+    console.log(data)
+    console.table(data.recordset)
+  })
 }
 
 module.exports = {
-  saveNote,
-  fetchNote,
-  updateNote,
   getPatientlist,
 }
