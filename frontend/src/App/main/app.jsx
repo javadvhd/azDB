@@ -1,6 +1,6 @@
 import React from 'react'
-import { get } from './../../setup/request'
-
+// import { get } from './../../setup/request'
+import { get } from 'superagent'
 class App extends React.Component {
   constructor(props) {
     super(props)
