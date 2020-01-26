@@ -1,12 +1,18 @@
 const sql = require('mssql')
-
-sql.connect('mssql://javad:javad2256VHD@localhost/database', err => {
+const config ={
+  server: 'DESKTOP-PE24J4O',
+  database: 'azDB',
+  user: 'mra',
+  password: '1377',
+  port: 1433
+}
+sql.connect(config, err => {
   if (err) {
     console.log('error', err)
     return console.error(err.message)
   }
   let sqlRequest = new sql.Request()
-  let sqlQuery = 'Select EmpId From Employees'
+  let sqlQuery = 'Select * From Employee e'
   console.log('sqlQuery ', sqlQuery)
   sqlRequest.query(sqlQuery, (err, data) => {
     if (err) {
