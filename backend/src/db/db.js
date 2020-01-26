@@ -23,4 +23,4 @@ sql.connect(config, err => {
 //   console.log('Close the database connection.')
 // })
 
-// module.exports = {}
+module.exports = {sql}

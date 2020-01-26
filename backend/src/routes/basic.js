@@ -1,26 +1,27 @@
-const { getPatientlist } = require('../db/db.handler')
-
-module.exports = ({ router }) => {
-  router.get('/patientList', ctx => {
-    getPatientlist()
-      .then(data => {
-        console.log('data ', data)
-        ctx.body = 'success!'
-      })
-      .catch(console.log)
+const { getPatientlist, getPrescriptionList, getEmpleyeeList, getHospitalizationList} = require('../db/db.handler')
+const { illnessNeedLabsProcedure, calcOnCallDoctorPaymentProcedure } = require('./../store/stored.procedures') 
+module.exports =  ({ router }) => {
+  router.get('/patientList', async  ctx => {
+   await getPatientlist().then(( data ) =>  (ctx.body = data))
   })
 
-  router.post('/updateNote', ctx => {
-    // updateNote(ctx.request.body)
-    //   .then(() => (ctx.body = 'success!'))
-    //   .catch(console.log)
+  router.get('/prescriptionList',async ctx => {
+    await getPrescriptionList().then(( data ) =>  (ctx.body = data))
   })
 
-  router.get('/fetchNote', ctx => {
-    // fetchNote(ctx.query)
-    //   .then(res => {
-    //     ctx.body = res
-    //   })
-    //   .catch(console.log),
+  router.get('/empleyeeList',async ctx => {
+    await getEmpleyeeList().then(( data ) =>  (ctx.body = data))
   })
+  router.get('/hospitalizationList',async ctx => {
+    await getHospitalizationList().then(( data ) =>  (ctx.body = data))
+  })
+
+  router.get('/illnessNeedsLabs',async ctx => {
+    await illnessNeedLabsProcedure().then(( data ) =>  (ctx.body = data))
+  })
+  
+  router.get('/calcOnCallDoctorPayment',async ctx => {
+    await calcOnCallDoctorPaymentProcedure(ctx).then(( data ) =>  (ctx.body = data))
+  })
+  
 }
