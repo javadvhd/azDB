@@ -35,7 +35,7 @@
 
 
 /*تاریخچه بیمار های بستری شده در بیمارستان*/
-CREATE	PROCEDURE	patointHistoryByAge
+CREATE	PROCEDURE	returnHistory
 @age [int]
 AS
 	BEGIN	

@@ -1,5 +1,6 @@
 const {sql} = require('./db')
 
+
 const getPrescriptionList = () => {
   return new Promise(resolve => {
     let sqlRequest = new sql.Request()
@@ -45,7 +46,21 @@ const getEmpleyeeList =  () => {
 const getHospitalizationList =  () => {
   return new Promise(resolve => {
     let sqlRequest = new sql.Request()
-    let sqlQuery = 'Select * From Hospitalization h'
+    let sqlQuery = 'Select * From View_1 v'
+    sqlRequest.query(sqlQuery,  (err, data) => {
+      if (err) {
+        console.log('error', err)
+        return console.error(err.message)
+      }
+      resolve(data.recordset)
+    })
+  })
+}
+
+const getReleaseList =  () => {
+  return new Promise(resolve => {
+    let sqlRequest = new sql.Request()
+    let sqlQuery = 'Select * From View_2 v'
     sqlRequest.query(sqlQuery,  (err, data) => {
       if (err) {
         console.log('error', err)
@@ -61,9 +76,11 @@ const getHospitalizationList =  () => {
 
 
 
+
 module.exports = {
   getPatientlist,
   getPrescriptionList,
   getEmpleyeeList,
-  getHospitalizationList
+  getHospitalizationList,
+  getReleaseList
 }
